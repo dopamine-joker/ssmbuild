@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+    <!-- 以下 validator  ConversionService 在使用 mvc:annotation-driven 会 自动注册-->
+<!--    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">-->
+<!--        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>-->
+<!--    </bean>-->
+
+<!--    <mvc:annotation-driven validator="validator"/>-->
+
+
+    <context:component-scan base-package="com.doper.controller" />
+    <!--过滤静态资源，css,mp3,mp4... -->
+    <!--静态资源请求走应用服务器的servlet,如果非静态资源则走DispatcherServlet-->
+    <mvc:default-servlet-handler/>
+    <!--注册handlerMapping,handlerAdapter-->
+    <mvc:annotation-driven/>
+
+    <!--视图解析器-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!--注意这里的id一定要是multipartResolver,否则会出错-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+    </bean>
+
+</beans>

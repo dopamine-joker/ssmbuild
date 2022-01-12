@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.doper.dao.BookMapper">
+
+    <!--这里因为在spring-dao.xml中使用了别名，所以不用全包名-->
+    <insert id="addBook" parameterType="Book">
+        insert into book(bookID, bookName, bookCounts, detail)
+        values (0, #{bookName}, #{bookCounts}, #{detail});
+    </insert>
+
+    <delete id="deleteBookById" parameterType="_int">
+        delete from book where bookID = #{bookID}
+    </delete>
+
+    <update id="updateBook" parameterType="_int">
+        update book
+        <set>
+            <if test="bookName != null">bookName = #{bookName}, </if>
+            <if test="bookCounts != null">bookCounts = #{bookCounts}, </if>
+            <if test="detail != null">detail = #{detail}, </if>
+        </set>
+        where bookID = #{bookID};
+    </update>
+
+    <select id="queryBookById" parameterType="_int" resultType="Book">
+        select * from book where bookID = #{bookID}
+    </select>
+
+    <select id="queryBook" parameterType="java.lang.String" resultType="Book">
+        select * from book where bookName = #{name}
+    </select>
+
+    <select id="queryBookByName" parameterType="java.lang.String" resultType="Book">
+        select * from book where bookName like concat('%', #{name}, '%')
+    </select>
+
+    <select id="queryAllBook" resultType="Book">
+        select * from book
+    </select>
+</mapper>
