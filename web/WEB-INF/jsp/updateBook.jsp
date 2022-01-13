@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <form action="${pageContext.request.contextPath}/book/updateBook">
+    <form action="${pageContext.request.contextPath}/admin/book/updateBook">
         <input value="${book.bookID}" name="bookID" hidden>
 
         <div class="form-group">

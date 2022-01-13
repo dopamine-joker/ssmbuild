@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <form action="${pageContext.request.contextPath}/book/addBook" method="post" enctype="multipart/form-data">
+    <form action="${pageContext.request.contextPath}/admin/book/addBook" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label>图片</label>
             <input type="file" class="form-control" name="bookPic">

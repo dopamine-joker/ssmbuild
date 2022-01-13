@@ -29,9 +29,9 @@
                                     <td>\${data[i].detail}</td>
                                     <td>
                                         <a class="btn btn-info"
-                                        href="/book/toUpdate?id=\${data[i].bookID}">修改</a>
+                                        href="/admin/book/toUpdate?id=\${data[i].bookID}">修改</a>
                                     <a class="btn btn-danger"
-                                        href="/book/deleteBook/\${data[i].bookID}">删除</a>
+                                        href="/admin/book/deleteBook/\${data[i].bookID}">删除</a>
                                     </td>
                                 </tr>
                             `;
@@ -51,7 +51,7 @@
 <div>
     <div class="row justify-content-center">
         <div class="col-9">
-            <a class="btn btn-primary col-1" href="${pageContext.request.contextPath}/book/toAddBook">增加书籍</a>
+            <a class="btn btn-primary col-1" href="${pageContext.request.contextPath}/admin/book/toAddBook">增加书籍</a>
             <%--        <div class="form-group">--%>
             <%--            <label for="searchInput">名称</label>--%>
             <input type="text" class="offset-8 col-2" id="searchInput" name="name" placeholder="搜索名称" required>
@@ -80,9 +80,9 @@
                         <td>${book.detail}</td>
                         <td>
                             <a class="btn btn-info"
-                               href="${pageContext.request.contextPath}/book/toUpdate?id=${book.bookID}">修改</a>
+                               href="${pageContext.request.contextPath}/admin/book/toUpdate?id=${book.bookID}">修改</a>
                             <a class="btn btn-danger"
-                               href="${pageContext.request.contextPath}/book/deleteBook/${book.bookID}">删除</a>
+                               href="${pageContext.request.contextPath}/admin/book/deleteBook/${book.bookID}">删除</a>
                         </td>
                     </tr>
                 </c:forEach>

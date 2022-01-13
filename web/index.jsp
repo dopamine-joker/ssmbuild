@@ -36,7 +36,7 @@
                         $("#loginMsg").html(data.msg);
                     },
                     error: function (err) {
-                        alert("err!");
+                        alert("err!" + err);
                         console.log(err);
                     }
                 })
